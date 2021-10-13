@@ -21,6 +21,10 @@ type MyProps = {
 @inject('authStore')
 @observer
 export class Signup extends Component<MyProps> {
+  toLogin = () => {
+    this.props.navigation.navigate('login');
+  };
+
   initialValue = {
     email: '',
     tel: '',
@@ -81,6 +85,7 @@ export class Signup extends Component<MyProps> {
                     <MyInput
                       onChangeText={handleChange('password')}
                       myText={LANGUAGE.signup.password}
+                      MySecureTextEntry={true}
                     />
                   </View>
                   <View
@@ -107,6 +112,7 @@ export class Signup extends Component<MyProps> {
                   <MyButton
                     text={LANGUAGE.signup.signin}
                     bgColor={COLOR.primaryColor}
+                    onPress={this.toLogin}
                   />
                 </View>
               </ScrollView>

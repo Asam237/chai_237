@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {COLOR, SPACING} from '../../assets/themes/globals';
 import {MyText} from '../myText/MyText.component';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
 
 type MyProps = {
   data?: any;
@@ -31,10 +33,36 @@ export class CoffeeItem extends Component<MyProps> {
           color={COLOR.white}
         />
         <MyText
-          text={this.props.data.subTitle}
+          text={this.props.data['produits'][0].description}
           variant="normal"
           color={COLOR.white}
+          numberOfLine={1}
         />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: SPACING.small,
+          }}>
+          <View>
+            <MyText
+              variant="normal"
+              color={COLOR.white}
+              text={`${this.props.data['produits'][0].price} FCFA`}
+            />
+          </View>
+          <View
+            style={{
+              backgroundColor: COLOR.primaryColor,
+              height: SPACING.medium,
+              width: SPACING.medium,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 2,
+            }}>
+            <FontAwesomeIcon size={12} color={COLOR.white} icon={faPlus} />
+          </View>
+        </View>
       </View>
     );
   }

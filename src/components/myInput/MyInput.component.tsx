@@ -6,6 +6,7 @@ import {COLOR, SPACING} from '../../assets/themes/globals';
 interface MyProps extends TextInputProps {
   myText?: any;
   myKeyboardType?: any;
+  MySecureTextEntry?: any;
 }
 
 export class MyInput extends Component<MyProps> {
@@ -18,6 +19,7 @@ export class MyInput extends Component<MyProps> {
           onChangeText={(e: any) => this.props.onChangeText!(e)}
           style={styles.container__input}
           placeholderTextColor={COLOR.gray}
+          secureTextEntry={this.props.MySecureTextEntry}
         />
       </View>
     );

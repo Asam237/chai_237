@@ -8,6 +8,7 @@ type MyProps = {
   color?: any;
   align?: any;
   spacing?: any;
+  numberOfLine?: number;
 };
 
 const TEXT_STYLE = {
@@ -34,6 +35,7 @@ export class MyText extends Component<MyProps> {
     const myStyles = this.changeByVariant(variant);
     return (
       <Text
+        numberOfLines={this.props.numberOfLine}
         {...variant}
         style={[
           myStyles,

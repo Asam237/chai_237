@@ -6,6 +6,7 @@ import {AuthService} from '../services/auth.service';
 import {TOAST_OPTIONS} from '../helpers/toatOptions';
 import {errorStatus} from '../helpers/errorStatus';
 import {AppEventEmitter, AppEvents} from '../helpers/eventEmitter';
+import Toast from 'react-native-toast-message';
 
 export class AuthStore {
   @observable email: string = '';
@@ -37,8 +38,11 @@ export class AuthStore {
       password,
       this.fromApi,
     );
-    if (data.status === 400) {
-      console.log('Erreur du status 400');
+    if (!data) {
+      Toast.show({
+        text1: 'message',
+        ...TOAST_OPTIONS('error'),
+      });
     } else {
       this.email = data.email;
       this.tel = data.tel;
@@ -54,15 +58,11 @@ export class AuthStore {
     console.log('Hello signi store');
     AppEventEmitter.emit(AppEvents.OverlaySpinner, true);
     const {data}: any = await AuthService.signin(email, password);
-    if (!data) {
-      errorStatus(data);
-    } else {
-      this.email = data.email;
-      this.password = data.password;
-      console.log('Mes datas : ', data);
-      TOAST_OPTIONS('success');
-      AppEventEmitter.emit(AppEvents.OverlaySpinner, false);
-      return navigate('mainNav');
-    }
+    this.email = data.email;
+    this.password = data.password;
+    console.log('Mes datas : ', data);
+    AppEventEmitter.emit(AppEvents.OverlaySpinner, false);
+    TOAST_OPTIONS('success');
+    return navigate('mainNav');
   }
 }

@@ -69,6 +69,7 @@ export class Signin extends Component<MyProps> {
                     <MyInput
                       onChangeText={handleChange('password')}
                       myText={LANGUAGE.login.password}
+                      MySecureTextEntry={true}
                     />
                   </View>
                 </View>
