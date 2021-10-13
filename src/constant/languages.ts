@@ -25,4 +25,9 @@ export const LANGUAGE = {
     title: 'Consommez le meilleur cafe au Cameroun',
     searchInput: 'Trouvez votre plaisir ',
   },
+  detail: {
+    buyNow: 'Acheter maintenant',
+    price: 'Prix',
+    value: '800 FCFA',
+  },
 };

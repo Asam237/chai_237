@@ -1,4 +1,5 @@
 import {MainNavigation} from '../navigation/main.navigation';
+import {DetailCoffee} from '../screens/detailCoffee/DetailCoffee.screen';
 import {Home} from '../screens/home/Home.screen';
 import {Others} from '../screens/others/Others.screen';
 import {Signin} from '../screens/signin/Signin.screen';
@@ -17,6 +18,7 @@ interface IRoutes {
   mainNav: IRouteItem;
   others: IRouteItem;
   home: IRouteItem;
+  detailCoffee: IRouteItem;
 }
 
 export const ROUTES: IRoutes = {
@@ -43,5 +45,9 @@ export const ROUTES: IRoutes = {
   others: {
     name: 'others',
     component: Others,
+  },
+  detailCoffee: {
+    name: 'detailCoffee',
+    component: DetailCoffee,
   },
 };

@@ -46,6 +46,13 @@ export class AppNavigation extends Component {
               header: () => null,
             }}
           />
+          <Stack.Screen
+            name={ROUTES.detailCoffee.name}
+            component={ROUTES.detailCoffee.component}
+            options={{
+              header: () => null,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

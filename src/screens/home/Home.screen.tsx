@@ -30,15 +30,17 @@ type MyProps = {
 @inject('coffeeItem')
 @observer
 export class Home extends Component<MyProps> {
-  // toDetail = (value?: number) => {
-  //   this.props.navigation.navigate('', this.state.data[value]);
-  // };
-
   state = {
     myData: [],
     imageData: '',
   };
 
+  toDetail = async (value?: number) => {
+    this.props.navigation.navigate(
+      'detailCoffee',
+      await this.state.myData[value],
+    );
+  };
   async componentDidMount() {
     const data = await this.props.coffeeItem!.getAllCoffeeItem();
     this.setState({
@@ -89,10 +91,7 @@ export class Home extends Component<MyProps> {
             <View style={{marginTop: SPACING.xmedium}}>
               <FlatList
                 // data={COFFEE}
-                data={
-                  (console.log('DAAAAAATTTTTTTTTTTA', this.state.myData),
-                  this.state.myData)
-                }
+                data={this.state.myData}
                 numColumns={2}
                 showsVerticalScrollIndicator={false}
                 keyExtractor={(item, index) => index.toString()}
