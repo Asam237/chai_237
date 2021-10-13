@@ -23,6 +23,6 @@ export const LANGUAGE = {
   },
   home: {
     title: 'Consommez le meilleur cafe au Cameroun',
-    searchInput: 'Trouvez votre plaisir',
+    searchInput: 'Trouvez votre plaisir ',
   },
 };
