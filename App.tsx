@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {AppNavigation} from './src/navigation/app.navigation';
 import {Provider} from 'mobx-react';
 import {appRootStore} from './src/store/root.store';
-
 import {AppEventEmitter, AppEvents} from './src/helpers/eventEmitter';
 import Toast from 'react-native-toast-message';
 import Spinner from 'react-native-loading-spinner-overlay';
 import {COLOR} from './src/assets/themes/globals';
+import {AppNavigation} from './src/navigation/app.navigation';
 
 export class App extends Component {
   overlaySpinnerUnsubscribe: any = null;
